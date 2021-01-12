@@ -1,0 +1,5 @@
+{
+    "user": "postgres",
+    "connection": "dbname=arduino user=postgres password=poilo777 host=localhost sslmode=disable",
+    "port": ":8080"
+}

@@ -1,0 +1,31 @@
+<div class="log-form">
+    <h1>состояние выключателей</h1>
+    <form method="post" action="/setdevicestatus">
+        
+    <table border="1">
+        <caption>РЕЛЕ</caption>
+        <tr>
+         <th>РЕЛЕ</th>
+         <th>ТЕКУЩЕЕ СОСТОЯНИЕ</th>
+         <th>НОМЕР</th>
+         <th>ЗАДАТЬ СОСТОЯНИЕ</th>
+        </tr>
+        {{ range .Items}}
+        <tr>
+         <td>{{ .Rele_name}}</td>
+         <td>{{ .Rele_status}}</td>
+         <td>{{ .Rele_number}}</td>       
+         <td><select name = "rele" + {{ .Rele_number}}><option>ВКЛ</option><option>ОТКЛ</option></select></td>
+        </tr>
+       {{ end}}
+       </table>
+
+
+        <button type="submit">ЗАДАТЬ СОСТОЯНИЕ РЕЛЕ</button>
+    </form>
+
+    <form method="post" action="/logout">
+        <button type="submit">ВЫХОД</button>
+    </form>
+</div>
+
