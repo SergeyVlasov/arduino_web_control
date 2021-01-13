@@ -1,0 +1,84 @@
+
+#include <SPI.h>
+#include <Ethernet.h>
+#include <ArduinoJson.h>
+#include <String.h>
+
+
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED }; //physical mac address
+byte myserver[] = { 195, 133, 197, 231 }; //
+
+EthernetClient client;
+String webdata_str;
+
+String readString;
+String data_rele_1;
+int ind1; 
+
+
+
+void setup() {
+
+  //Ethernet.begin(mac, ip, myDns);
+  Ethernet.begin(mac);
+  Serial.begin(9600);
+
+  pinMode(7, OUTPUT);
+  
+}
+
+void loop() {
+
+  delay(5000);
+  sendGET();
+
+}
+
+
+void sendGET() //client function to send/receive GET request data.
+{
+  readString = "";
+  delay(500);
+  
+  if (client.connect(myserver, 8081)) {  //starts client connection, checks for connection
+    Serial.println("connected");
+    client.println("GET /pagefordevices/admin HTTP/1.0"); //download text
+    client.println(); //end of get request
+
+  }
+  else {
+    Serial.println("connection failed"); //error message if no client connect
+    Serial.println();
+  }
+
+  while (client.connected() && !client.available()) delay(100); //waits for data
+  while (client.connected() || client.available()) { //connected or data available
+
+    char webdata = client.read(); //gets byte from ethernet buffer
+    readString += webdata; //places captured byte in 
+
+  }
+
+    //parse readString for request
+    ind1 = readString.indexOf("реле1"); //finds location of first " реле "
+    data_rele_1 = readString.substring(ind1 + 26, ind1+30); //captures data String
+    Serial.print("реле1   ");
+    Serial.println(data_rele_1);
+    if (data_rele_1 == "fals") {
+      digitalWrite(7, HIGH);
+    } else {
+      digitalWrite(7, LOW);
+    }
+
+    Serial.println();
+
+   
+
+
+  Serial.println();
+  Serial.println("disconnecting.");
+  Serial.println("==================");
+  Serial.println();
+  client.stop(); //stop client
+
+}
