@@ -1,7 +1,38 @@
 # arduino_web_control
 Управление состоянием реле через интернет
 
+- 
 ![til](https://github.com/SergeyVlasov/arduino_web_control/blob/main/web_control.gif)
+
+- 
+
+Для сборки arduino клиента потребуется:
+
+-arduino
+
+![til](https://github.com/SergeyVlasov/arduino_web_control/blob/main/media/uno.jpg)
+
+- плата ethernet (w5100)
+
+![til](https://github.com/SergeyVlasov/arduino_web_control/blob/main/media/w5100.jpg)
+
+
+Arduino и плата ethernet собираются в один блок
+
+![til](https://github.com/SergeyVlasov/arduino_web_control/blob/main/media/uno%2Bw5100.jpg)
+
+
+- блок реле
+
+![til](https://github.com/SergeyVlasov/arduino_web_control/blob/main/media/relay.jpg)
+
+
+в итоге схема такая
+
+
+![til](https://github.com/SergeyVlasov/arduino_web_control/blob/main/media/sceme.jpg)
+
+
 
 инфраструктура состоит из:
 
