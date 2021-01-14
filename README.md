@@ -19,7 +19,7 @@
 
 Arduino и плата ethernet собираются в один блок
 
-![til](https://github.com/SergeyVlasov/arduino_web_control/blob/main/media/uno%2Bw5100.jpg)
+![til](https://github.com/SergeyVlasov/arduino_web_control/blob/main/media/uno%2Bethernet.jpg)
 
 
 - блок реле
