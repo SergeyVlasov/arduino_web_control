@@ -64,10 +64,10 @@ void sendGET() //client function to send/receive GET request data.
     data_rele_1 = readString.substring(ind1 + 26, ind1+30); //captures data String
     Serial.print("реле1   ");
     Serial.println(data_rele_1);
-    if (data_rele_1 == "fals") {
-      digitalWrite(7, HIGH);
-    } else {
+    if (data_rele_1 == "true") {
       digitalWrite(7, LOW);
+    } else {
+      digitalWrite(7, HIGH);
     }
 
     Serial.println();
