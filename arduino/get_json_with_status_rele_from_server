@@ -6,7 +6,7 @@
 
 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED }; //physical mac address
-byte myserver[] = { 195, 133, 197, 231 }; //
+byte myserver[] = { 192, 168, 1, 2 }; //
 
 EthernetClient client;
 String webdata_str;
