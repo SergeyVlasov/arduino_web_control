@@ -8,7 +8,7 @@
 
 Для сборки arduino клиента потребуется:
 
--arduino
+- arduino
 
 ![til](https://github.com/SergeyVlasov/arduino_web_control/blob/main/media/uno.jpg)
 
