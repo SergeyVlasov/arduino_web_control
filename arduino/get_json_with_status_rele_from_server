@@ -66,8 +66,10 @@ void sendGET() //client function to send/receive GET request data.
     Serial.println(data_rele_1);
     if (data_rele_1 == "true") {
       digitalWrite(7, LOW);
-    } else {
+    } else if (data_rele_1 == "fals") {
       digitalWrite(7, HIGH);
+    } else {
+      
     }
 
     Serial.println();
